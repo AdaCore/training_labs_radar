@@ -3,7 +3,7 @@ with Ada.Text_IO;
 with Devices.Radars;
 with Radar_Internals;
 
-procedure Main is
+procedure Ravenscar_Tasking_Main is
     E : Devices.Radars.Event_T;
 begin
    while True loop
@@ -15,4 +15,4 @@ begin
           & Radar_Internals.Object_Status_T'Image (E.Status) );
       Ada.Text_IO.Put_Line ("radar at angle " & Radar_Internals.Angle_Degrees_T'Image (Devices.Radars.Radar.Angle));
    end loop;
-end Main;
+end Ravenscar_Tasking_Main;

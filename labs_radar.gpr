@@ -1,27 +1,44 @@
-with "config/lab_radar_config.gpr";
-with "src/020_declarations/lab_declarations.gpr";
-with "src/030_basic_types/lab_basic_types.gpr";
+with "config/labs_radar_config.gpr";
 
 project Labs_Radar is
 
-   type Lab_T is ("Declarations", "Basic_Types"); 
+   type Lab_T is ("Declarations", "Basic_Types", "Statements"); 
    Lab : Lab_T := external ("Lab", "Declarations");
 
-   for Source_Dirs use ("config/");
-   for Object_Dir use "obj/" & Lab_Radar_Config.Build_Profile;
-   for Create_Missing_Dirs use "True";
+   type Mode_Type is ("Problem", "Solution");
+   Mode : Mode_Type := external ("Mode", "Problem");
 
-   case Lab is
-   when "Declarations" =>
-      for Exec_Dir use "src/020_declarations/" & Lab_Declarations'Exec_Dir;
-      for Main use Lab_Declarations'Main;
-   when "Basic_Types" =>
-      for Exec_Dir use "src/030_basic_types/" & Lab_Basic_Types'Exec_Dir;
-      for Main use Lab_Basic_Types'Main;
+   Answer_Mode_Dir := "";
+   case Mode is
+      when "Problem" =>
+         Answer_Mode_Dir := "src";
+
+      when "Solution" =>
+         Answer_Mode_Dir := "answers";
    end case;
 
+   Lab_Number := "";
+   Lab_Name := "";
+   case Lab is
+   when "Declarations" =>
+      Lab_Number := "020";
+      Lab_Name := "declarations";
+   when "Basic_Types" =>
+      Lab_Number := "030";
+      Lab_Name := "basic_types";
+   when "Statements" =>
+      Lab_Number := "040";
+      Lab_Name := "statements";
+   end case;
+   Lab_Source_Dir :=  "src/" & Lab_Number & "_" & Lab_Name & "/" & Answer_Mode_Dir;
+
+   for Source_Dirs use ("config/", "src/common", Lab_Source_Dir);
+   for Main use (Lab_Name & "_main");
+   for Object_Dir use "obj/" & Labs_Radar_Config.Build_Profile;
+   for Create_Missing_Dirs use "True";
+
    package Compiler is
-      for Default_Switches ("Ada") use Lab_Radar_Config.Ada_Compiler_Switches;
+      for Default_Switches ("Ada") use Labs_Radar_Config.Ada_Compiler_Switches;
    end Compiler;
 
    package Binder is
@@ -33,3 +50,4 @@ project Labs_Radar is
    end Install;
 
 end Labs_Radar;
+

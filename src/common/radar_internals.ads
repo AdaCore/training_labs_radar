@@ -21,6 +21,12 @@ package Radar_Internals is
    procedure Update_E_T_A (E_T_A : Float);
    procedure Update_No_E_T_A;
 
+   -- Print status from internal radar state
    procedure Time_Step;
+
+   -- Print status, ignores internal radar state
+   procedure Time_Step
+     (Radar_Angle        : Float; Time_To_Arrival : Float;
+      John_Connor_Status : String);
 
 end Radar_Internals;

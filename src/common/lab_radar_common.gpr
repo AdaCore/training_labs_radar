@@ -1,0 +1,3 @@
+project Lab_Radar_Common is
+   for Source_Dirs use (".");
+end Lab_Radar_Common;
