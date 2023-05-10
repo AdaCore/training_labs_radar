@@ -1,9 +1,7 @@
-name = "lab_radar"
+name = "labs_radar"
 description = "Introductory Ada exercises based around a fake radar codebase"
 version = "0.1.0"
 
 authors = ["Léo Germond"]
 maintainers = ["Léo Germond <germond@adacore.com>"]
 maintainers-logins = ["leogermond"]
-
-executables = ["lab_radar"]

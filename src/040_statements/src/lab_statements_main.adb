@@ -1,6 +1,6 @@
 with Radar_Internals; use Radar_Internals;
 
-procedure Main is
+procedure Lab_Statements_Main is
    -- You are in charge of developping a rotating radar for the new T-1000
    -- Some of the radar code is already in place, it is just missing the
    -- high-level interface to handle incoming objects.
@@ -43,7 +43,7 @@ begin
    -- Declare a loop for-in with Radar_Scanning_Loop_T to get the active
    -- object status and distance and to perform the appropriate action up to
    -- the Time_Step subprogram call.
-   for J in Radar_Scanning_Loop_T loop
+
 
       -- Get the status of the active object by a call to Get_Active_Object_Status
       Active_Object_Status := Get_Active_Object_Status;
@@ -62,16 +62,6 @@ begin
       -- * Selected, then call Get_Closer (Fast)
       -- * Out_Of_Range, then call Get_Closer (Normal)
 
-      case Active_Object_Status is
-      when Tracked =>
-         Walk_And_Scan;
-      when Cleared =>
-         Next_Object;
-      when Selected =>
-         Get_Closer (Fast);
-      when Out_Of_Range =>
-         Get_Closer (Normal);
-      end case;
 
       -- Get running speed by a call to Get_Running_Speed
       Running_Speed := Get_Running_Speed;
@@ -102,15 +92,7 @@ begin
       --         Rotate_Antenna (Normal)
       -- over Radar_Ping_Distance:
       --          Rotate_Antenna (Fast)
-      if Active_Object_Distance <= Radar_Focus_Distance then
-         null;
-      elsif Active_Object_Distance <= Radar_Scan_Distance then
-         Rotate_Antenna (Slow);
-      elsif Active_Object_Distance <= Radar_Ping_Distance then
-         Rotate_Antenna (Normal);
-      else
-         Rotate_Antenna (Fast);
-      end if;
+
 
       -- QUESTION 4 - Part A
       --
@@ -123,22 +105,15 @@ begin
       -- QUESTION 4 - Part B
       --
       -- Modify it again to use a conditional `exit when` statement.
-
-      exit when Active_Object_Status = Selected;
+      
 
       -- QUESTION 5
       --
       -- We want a Radar_Scan_Delay delay in case of scan (Active_Object_Status = Tracked)
-      -- else a Radar_No_Scan_Delay seconds delay.
-      -- Implement it using a case-expression
+      -- else and only else a Radar_No_Scan_Delay seconds delay.
 
-      if Active_Object_Status = Tracked then
-         delay Radar_Scan_Delay;
-      else
-         delay Radar_No_Scan_Delay;
-      end if;
+      delay Radar_No_Scan_Delay;
 
       Time_Step;
-   end loop;
 
 end Main;

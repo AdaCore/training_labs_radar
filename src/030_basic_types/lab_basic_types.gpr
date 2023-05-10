@@ -1,4 +1,4 @@
-project Radar is
+project Lab_Basic_Types is
 
    type Mode_Type is ("Problem", "Solution");
    Mode : Mode_Type := external ("Mode", "Problem");
@@ -12,7 +12,7 @@ project Radar is
    end case;
 
    for Object_Dir use "obj";
-   for Main use ("main.adb");
+   for Main use ("lab_basic_types_main.adb");
 
    package Compiler is
       for Default_Switches ("Ada") use ("-gnat12", "-g", "-gnatQ", "-O0");
@@ -22,5 +22,5 @@ project Radar is
       for Default_Switches ("Ada") use ("-E");
    end Binder;
 
-end Radar;
+end Lab_Basic_Types;
 

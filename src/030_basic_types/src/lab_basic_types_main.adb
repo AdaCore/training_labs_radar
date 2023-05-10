@@ -1,6 +1,6 @@
 with Radar_Internals;
 
-procedure Main is
+procedure Lab_Basic_Types_Main is
    -- You are in charge of developping a rotating radar for the new T-1000
    -- Some of the radar code is already in place, it is just missing the
    -- high-level interface to handle incoming objects.
@@ -76,7 +76,7 @@ begin
    --
    -- Redefine Object_Distance_Km_T as a type instead of subtype.
    -- Modify the two division to make it work, using explicit casting.
-end Main;
+end Lab_Basic_Types_Main;
 
 -- You can use the 'Scenario' tab on the right to change the Mode from
 -- problem to solution, click the checkmark button, and go to the answers

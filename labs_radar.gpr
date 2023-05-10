@@ -1,9 +1,10 @@
 with "config/lab_radar_config.gpr";
 with "src/020_declarations/lab_declarations.gpr";
+with "src/030_basic_types/lab_basic_types.gpr";
 
-project Lab_Radar is
+project Labs_Radar is
 
-   type Lab_T is ("Declarations"); 
+   type Lab_T is ("Declarations", "Basic_Types"); 
    Lab : Lab_T := external ("Lab", "Declarations");
 
    for Source_Dirs use ("config/");
@@ -14,6 +15,9 @@ project Lab_Radar is
    when "Declarations" =>
       for Exec_Dir use "src/020_declarations/" & Lab_Declarations'Exec_Dir;
       for Main use Lab_Declarations'Main;
+   when "Basic_Types" =>
+      for Exec_Dir use "src/030_basic_types/" & Lab_Basic_Types'Exec_Dir;
+      for Main use Lab_Basic_Types'Main;
    end case;
 
    package Compiler is
@@ -28,4 +32,4 @@ project Lab_Radar is
       for Artifacts (".") use ("share");
    end Install;
 
-end Lab_Radar;
+end Labs_Radar;
