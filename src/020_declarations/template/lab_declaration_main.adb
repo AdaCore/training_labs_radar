@@ -1,4 +1,4 @@
-procedure Main is
+procedure Lab_Declaration_Main is
    -- This procedure is using top-notch algorithms to calculate info.
    -- It will perform a complex calculation (out of this exercice scope),
    -- using data you provide, to update a state register.
@@ -49,7 +49,7 @@ begin
    --
    -- Set All_Active_Processors to the sum of
    --  * the local Active_Processor
-   --  * and Main.Active_Processor
+   --  * and Lab_Declaration_Main.Active_Processor
    --
    -- QUESTION 2 - Part C
    --
@@ -60,7 +60,7 @@ begin
    begin
       Running_Calculation := True;
       All_Active_Processors
-        := Main.Active_Processors + Calculate.Active_Processors;
+        := Lab_Declaration_Main.Active_Processors + Calculate.Active_Processors;
    end Calculate;
    --$ end answer
 
@@ -90,7 +90,7 @@ begin
    -- You can remove it at the end of the lab.
    null;
    --$ end question
-end Main;
+end Lab_Declaration_Main;
 --$ begin question
 
 -- You can use the 'Scenario' tab on the right to change the Mode from

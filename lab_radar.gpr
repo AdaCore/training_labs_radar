@@ -1,11 +1,20 @@
 with "config/lab_radar_config.gpr";
+with "src/020_declarations/lab_declarations.gpr";
+
 project Lab_Radar is
 
-   for Source_Dirs use ("src/", "config/");
+   type Lab_T is ("Declarations"); 
+   Lab : Lab_T := external ("Lab", "Declarations");
+
+   for Source_Dirs use ("config/");
    for Object_Dir use "obj/" & Lab_Radar_Config.Build_Profile;
    for Create_Missing_Dirs use "True";
-   for Exec_Dir use "bin";
-   for Main use ("lab_radar.adb");
+
+   case Lab is
+   when "Declarations" =>
+      for Exec_Dir use "src/020_declarations/" & Lab_Declarations'Exec_Dir;
+      for Main use Lab_Declarations'Main;
+   end case;
 
    package Compiler is
       for Default_Switches ("Ada") use Lab_Radar_Config.Ada_Compiler_Switches;

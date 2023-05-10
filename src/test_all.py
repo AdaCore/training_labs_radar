@@ -7,11 +7,10 @@ import sys
 
 
 ROOT = Path(sys.argv[0]).parent.resolve()
-CONTRIB = ROOT.parents[3] / "contrib"
 
 
 def adacut(f, answer=True):
-    a = [str(CONTRIB / "adacut.py"), "-m", "answer" if answer else "question", str(f)]
+    a = ["adacut", "-m", "answer" if answer else "question", str(f)]
     r = run(a, text=True, capture_output=True)
 
     if r.returncode:
