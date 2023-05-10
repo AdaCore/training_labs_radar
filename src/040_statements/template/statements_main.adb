@@ -5,7 +5,7 @@ procedure Statements_Main is
    --  Some of the radar code is already in place, it is just missing the
    --  high-level interface to handle incoming objects.
    --
-   --  In this lab, you are provided with a richer Radar interface that allows you
+   --  In this lab, you are provided with a richer Radar interface allowing you
    --  to select an active object with the radar, and to decide what to do
    --  depending on its status and your position.
 
@@ -33,8 +33,8 @@ procedure Statements_Main is
    Radar_Ping_Distance : constant Object_Distance_Km_T := 8.0;
 
    --  Internal clocks
-   Radar_No_Scan_Delay : Duration := 0.1;
-   Radar_Scan_Delay : Duration := 3.0;
+   Radar_No_Scan_Delay : constant Duration := 0.1;
+   Radar_Scan_Delay : constant Duration := 3.0;
 
 begin
 
@@ -44,10 +44,12 @@ begin
    --  object status and distance and to perform the appropriate action up to
    --  the Time_Step subprogram call.
 
-   --$ line answer
+   --$ begin answer
    for J in Radar_Scanning_Loop_T loop
 
-      --  Get the status of the active object by a call to Get_Active_Object_Status
+   --$ end answer
+      --  Get the status of the active object by a call
+      --  to Get_Active_Object_Status
       Active_Object_Status := Get_Active_Object_Status;
 
       --  And its distance by a call to Get_Active_Object_Distance
@@ -63,8 +65,8 @@ begin
       --  * Cleared, then call Next_Object
       --  * Selected, then call Get_Closer (Fast)
       --  * Out_Of_Range, then call Get_Closer (Normal)
-
       --$ begin answer
+
       case Active_Object_Status is
       when Tracked =>
          Walk_And_Scan;
@@ -83,12 +85,15 @@ begin
       --  QUESTION 3 - Part A
       --
       --  If Running_Speed is not 0 then update the E.T.A. by calling
-      --  Update_E_T_A (Active_Object_Distance / Running_Speed * Seconds_Per_Hour)
+      --
+      --  Update_E_T_A with an estimated time of arrival (ETA) of
+      --    Active_Object_Distance / Running_Speed * Seconds_Per_Hour
       --  Else, call Update_No_E_T_A
 
       if Running_Speed /= 0.0 then
          --  Calculate new E.T.A. to object
-         Update_E_T_A (Active_Object_Distance / Running_Speed * Seconds_Per_Hour);
+         Update_E_T_A
+            (Active_Object_Distance / Running_Speed * Seconds_Per_Hour);
       else
          Update_No_E_T_A;
       end if;
@@ -106,8 +111,8 @@ begin
       --          Rotate_Antenna (Normal)
       --  over Radar_Ping_Distance:
       --           Rotate_Antenna (Fast)
-
       --$ begin answer
+
       if Active_Object_Distance <= Radar_Focus_Distance then
          null;
       elsif Active_Object_Distance <= Radar_Scan_Distance then
@@ -130,13 +135,13 @@ begin
       --  QUESTION 4 - Part B
       --
       --  Modify it again to use a conditional `exit when` statement.
-      
       --$ line answer
       exit when Active_Object_Status = Selected;
 
       --  QUESTION 5
       --
-      --  We want a Radar_Scan_Delay delay in case of scan (Active_Object_Status = Tracked)
+      --  We want a Radar_Scan_Delay delay in case of scan, that is
+      --  when Active_Object_Status = Tracked
       --  else and only else a Radar_No_Scan_Delay seconds delay.
 
       --$ line question
