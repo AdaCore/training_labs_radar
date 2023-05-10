@@ -1,3 +1,8 @@
+--  Disabling some sane compiler warnings, for the exercise's sake
+pragma Warnings (Off, "useless assignment");
+pragma Warnings (Off, "assigned but never read");
+pragma Warnings (Off, "not referenced");
+
 procedure Declarations_Main is
    --  This procedure is using top-notch algorithms to calculate info.
    --  It will perform a complex calculation (out of this exercice scope),
@@ -37,7 +42,7 @@ begin
    --
    --  Set All_Active_Processors to the sum of
    --   * the local Active_Processor
-   --   * and Lab_Declaration_Main.Active_Processor
+   --   * and Declarations_Main.Active_Processor
    --
    --  QUESTION 2 - Part C
    --
