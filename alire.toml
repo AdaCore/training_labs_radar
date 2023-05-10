@@ -1,0 +1,9 @@
+name = "Radar Lab"
+description = "A set of Ada exercises to learn basic features of the language"
+version = "0.1.0"
+
+authors = ["Léo Germond"]
+maintainers = ["Léo Germond <germond@adacore.com>"]
+maintainers-logins = ["leogermond"]
+
+executables = ["lab_radar"]
