@@ -5,3 +5,5 @@ version = "0.1.0"
 authors = ["Léo Germond"]
 maintainers = ["Léo Germond <germond@adacore.com>"]
 maintainers-logins = ["leogermond"]
+
+license = "Apache-2.0"
