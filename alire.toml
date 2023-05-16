@@ -7,3 +7,4 @@ maintainers = ["Léo Germond <germond@adacore.com>"]
 maintainers-logins = ["leogermond"]
 
 licenses = "Apache-2.0"
+tags = ["training", "labs"]
