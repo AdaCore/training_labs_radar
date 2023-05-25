@@ -1,7 +1,10 @@
 .PHONY: ALWAYS
 
-all:
+all: html_doc
 	# nothing
+
+html_doc: ALWAYS
+	make -C doc html
 
 generate: ALWAYS
 	adacut -m question src/020_declarations/template/declarations_main.adb > src/020_declarations/src/declarations_main.adb
