@@ -10,6 +10,11 @@ Welcome to Labs Radar's documentation!
    :maxdepth: 2
    :caption: Contents:
 
+   020_declarations
+   030_basic_types
+   040_statements
+   adv_245_ravenscar_tasking
+
 
 
 Indices and tables
