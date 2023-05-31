@@ -12,7 +12,7 @@ and to put that knowledge to use by declaring some variables.
 Questions
 ---------
 
-* Follow the instruction in the source file
+* Follow the instructions in the source file
 * Locate and click on the "Compile & Run" button in `GNAT Studio`.
 
 .. image:: img/gnat_studio_run_button.png

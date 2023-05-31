@@ -20,4 +20,4 @@ Questions
 ---------
 
 * The code should compile immediately
-* Follow the instruction in the source file
+* Follow the instructions in the source file

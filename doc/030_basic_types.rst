@@ -13,4 +13,4 @@ Questions
 
 .. image:: img/basic_types.png
 
-* Follow the instruction in the source file
+* Follow the instructions in the source file
