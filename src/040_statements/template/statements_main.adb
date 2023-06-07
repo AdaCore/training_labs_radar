@@ -90,6 +90,7 @@ begin
       --    Active_Object_Distance / Running_Speed * Seconds_Per_Hour
       --  Else, call Update_No_E_T_A
 
+      --$ begin answer
       if Running_Speed /= 0.0 then
          --  Calculate new E.T.A. to object
          Update_E_T_A
@@ -98,6 +99,7 @@ begin
          Update_No_E_T_A;
       end if;
 
+      --$ end answer
       --  QUESTION 3 - Part B
       --  Using `if` and `elsif`, implement the following:
       --
