@@ -72,7 +72,7 @@ begin
    --$ line answer
    Distance_Closest_Object := 4.0;
 
-   --  Update Running_Time accordingly
+   --  Update Time_To_Arrival accordingly
    --$ line answer
    Time_To_Arrival := Distance_Closest_Object / Running_Speed * 3600.0;
 

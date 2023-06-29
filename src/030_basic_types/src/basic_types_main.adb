@@ -50,7 +50,7 @@ begin
 
    --  Set distance to closest object to 4km
 
-   --  Update Running_Time accordingly
+   --  Update Time_To_Arrival accordingly
 
    --  This line will compile if the declarations are OK
    Radar_Internals.Time_Step (Float (Radar_Angle), Time_To_Arrival,
