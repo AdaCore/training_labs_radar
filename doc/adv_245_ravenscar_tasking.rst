@@ -7,6 +7,9 @@ Ravenscar tasking
 
 The purpose of this lab is to manipulate some Ravenscar tasking.
 
+This lab is **not** Alire-enabled, so it will require
+**manual** setup and build.
+
 -----
 Hints
 -----
