@@ -5,15 +5,15 @@ project Labs_Radar is
    type Lab_T is ("Declarations", "Basic_Types", "Statements"); 
    Lab : Lab_T := external ("Lab", "Declarations");
 
-   type Mode_Type is ("Problem", "Solution");
-   Mode : Mode_Type := external ("Mode", "Problem");
+   type Mode_Type is ("Question", "Answer");
+   Mode : Mode_Type := external ("Mode", "Question");
 
    Answer_Mode_Dir := "";
    case Mode is
-      when "Problem" =>
+      when "Question" =>
          Answer_Mode_Dir := "src";
 
-      when "Solution" =>
+      when "Answer" =>
          Answer_Mode_Dir := "answers";
    end case;
 
