@@ -15,6 +15,7 @@ check_builds:
   stage: build
   script:
     - mkdir -p alire/cache/
+    - export ADAFLAGS="-Werror"
     - make build_questions
     - make build_answers
 
