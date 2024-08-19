@@ -7,7 +7,7 @@
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 project = 'Labs Radar'
-copyright = '2023, Léo Germond'
+copyright = '2024, Léo Germond'
 author = 'Léo Germond'
 
 # -- General configuration ---------------------------------------------------
