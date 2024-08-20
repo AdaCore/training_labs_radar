@@ -1,7 +1,7 @@
 name = "labs_radar"
 description = "Introductory Ada exercises based around a fake radar codebase"
 website = "https://github.com/adacore/training_labs_radar"
-version = "0.2.0"
+version = "1.0.0"
 
 authors = ["Léo Germond"]
 maintainers = ["Léo Germond <germond@adacore.com>"]

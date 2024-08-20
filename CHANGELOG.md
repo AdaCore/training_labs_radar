@@ -1,3 +1,9 @@
+# 1.0.0
+
+* Builds without any warnings
+* Gitlab CI
+* Rename lists into vectors
+
 # 0.2.0
 
 * Typo fixes
