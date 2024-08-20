@@ -2,7 +2,7 @@
 
 all: html_doc
 
-html_doc: ALWAYS
+doc_html: ALWAYS
 	make -C doc html
 
 generate: ALWAYS
@@ -12,3 +12,19 @@ generate: ALWAYS
 	adacut -m answer src/030_basic_types/template/basic_types_main.adb > src/030_basic_types/answers/basic_types_main.adb
 	adacut -m question src/040_statements/template/statements_main.adb > src/040_statements/src/statements_main.adb
 	adacut -m answer src/040_statements/template/statements_main.adb > src/040_statements/answers/statements_main.adb
+
+build_questions:
+	set -e; \
+	for lab in "Declarations" "Basic_Types" "Statements" \
+	; do \
+		echo $$lab; \
+		Mode=Question Lab="$$lab" alr build; \
+	done
+
+build_answers:
+	set -e; \
+	for lab in "Declarations" "Basic_Types" "Statements" \
+	; do \
+		echo $$lab; \
+		Mode=Answer Lab="$$lab" alr build; \
+	done

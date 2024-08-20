@@ -1,6 +1,7 @@
 with Radar_Internals;
 
 pragma Warnings (Off, "useless assignment");
+pragma Warnings (Off, "could be declared constant");
 
 procedure Basic_Types_Main is
    --  You are in charge of developping a rotating radar for the new T-1000

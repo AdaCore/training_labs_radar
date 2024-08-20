@@ -38,8 +38,8 @@ if __name__ == "__main__":
             adacut(tpl, False)
 
         gprclean(gpr)
-        gprbuild(gpr, Mode="Problem")
+        gprbuild(gpr, Mode="Question")
         run(str(gpr.parent / "obj" / "main"), check=True)
         gprclean(gpr)
-        gprbuild(gpr, Mode="Solution")
+        gprbuild(gpr, Mode="Answer")
         run(str(gpr.parent / "obj" / "main"), check=True)

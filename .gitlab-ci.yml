@@ -1,0 +1,28 @@
+sphinx:
+  services:
+    - image:ada-trainings
+  stage: build
+  script:
+      - make doc_html
+  artifacts:
+    name: "HTML_doc"
+    paths:
+      - doc/_build/html/*
+
+check_builds:
+  services:
+    - image:ada-trainings
+  stage: build
+  script:
+    - mkdir -p alire/cache/
+    - make build_questions
+    - make build_answers
+
+check_templates:
+  services:
+    - image:ada-trainings
+  stage: test
+  script:
+    - cp -r src src.actual
+    - make generate
+    - diff -rb src.actual src 
