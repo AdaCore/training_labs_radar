@@ -6,7 +6,7 @@ pragma Warnings (Off, "useless assignment");
 pragma Warnings (Off, "not referenced");
 
 procedure Statements_Main is
-   --  You are in charge of developping a rotating radar for the new T-1000
+   --  You are in charge of developing a rotating radar for the new T-1000
    --  Some of the radar code is already in place, it is just missing the
    --  high-level interface to handle incoming objects.
    --
