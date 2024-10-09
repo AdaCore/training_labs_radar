@@ -14,7 +14,6 @@ check_builds:
     - image:ada-trainings
   stage: build
   script:
-    - mkdir -p alire/cache/
     - export ADAFLAGS="-Werror"
     - make build_questions
     - make build_answers
