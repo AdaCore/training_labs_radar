@@ -19,7 +19,7 @@ procedure Basic_Types_Main is
    --  Define a subtype Object_Distance_Km_T as a Float with values
    --  between 10cm and 100km
    --$ line answer
-   subtype Object_Distance_Km_T is Float range 0.000_01 .. 100.0;
+   subtype Object_Distance_Km_T is Float range 0.000_1 .. 100.0;
 
    --  Define a subtype Speed_Kph_T that is a Float between 0 and 50 km/h
    --$ line answer
@@ -106,7 +106,7 @@ begin
    --      Radar_Angle := Radar_Angle + 361;
 
    --  This will work though, end result is identical to adding 1 degree
-   Radar_Angle := Radar_Angle + 359 + 2;
+   Radar_Angle := Radar_Angle + Angle_Degrees_T'Mod (361);
 
    --$ end answer
    --  b. There is a last minute change in the spec: John Connor is now in
