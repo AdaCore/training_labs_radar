@@ -88,7 +88,7 @@ begin
    --      Radar_Angle := Radar_Angle + 361;
 
    --  This will work though, end result is identical to adding 1 degree
-   Radar_Angle := Radar_Angle + 359 + 2;
+   Radar_Angle := Radar_Angle + Angle_Degrees_T'Mod (361);
 
    --  b. There is a last minute change in the spec: John Connor is now in
    --     the "Friend" status, make changes to the code to allow for that.
